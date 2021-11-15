@@ -13,7 +13,8 @@ class Category extends Component {
         }
     }
 
-    LoadMoreCategories = async () => {
+    LoadMoreCategories = async (e) => {
+        e.target.innerHTML = 'Loading...';
         //unction load more product
         const limit = 6;
         const position = this.state.position;
@@ -24,6 +25,7 @@ class Category extends Component {
             this.setState({
                 status_load_element: "hide"
             });
+            e.target.innerHTML = 'See More Categories';
             return;
         }
 
@@ -34,6 +36,7 @@ class Category extends Component {
             Products: new_list_categories,
             position: position + limit
         });
+        e.target.innerHTML = 'See More Categories'
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -68,7 +71,7 @@ class Category extends Component {
                     </div>
                     <div className="clearfix" />
                     <p className={`text-center ${this.state.status_load_element}`}>
-                        <span className='pink pointer' onClick={this.LoadMoreCategories}>See More Categories</span>
+                        <span className='pink pointer' onClick={(e) => this.LoadMoreCategories(e)}>See More Categories</span>
                     </p>
                 </div>
             </section>
