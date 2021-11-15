@@ -35,8 +35,9 @@ class Product extends Component {
         return { undefined }
     }
 
-    LoadMoreProduct = async () => {
+    LoadMoreProduct = async (e) => {
         //function load more product
+        e.target.innerHTML = 'Loading...';
         //two case
         //1: load by all products
         //2: load by search result
@@ -108,6 +109,7 @@ class Product extends Component {
                 position: position + limit
             });
         }
+        e.target.innerHTML = 'See More Foods';
     }
 
     render() {
@@ -131,7 +133,7 @@ class Product extends Component {
                 </div>
                 <div className="clearfix" />
                 <p className={`text-center ${this.state.status_load_element}`}>
-                    <span className="pink pointer" onClick={this.LoadMoreProduct}>See More Foods</span>
+                    <span className="pink pointer" onClick={(e) => this.LoadMoreProduct(e)}>See More Foods</span>
                 </p>
             </section>
 
