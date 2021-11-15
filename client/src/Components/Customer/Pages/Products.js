@@ -10,7 +10,7 @@ class Products extends Component {
         this.state = {
             id_category: "",
             ContentSearch: "",
-            Products: []
+            Products: [],
         };
     }
 
