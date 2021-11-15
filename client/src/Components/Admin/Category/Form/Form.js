@@ -8,9 +8,10 @@ class Form extends React.Component {
             id: '',
             category_name: '',
             file: null,
-            invalid: 1
+            invalid: 1,
+            img_review: <p className='text-center format-p'>No picture</p>
         }
-        this.btnAddImg = React.createRef()
+        //this.btnAddImg = React.createRef()
         this.error_image = React.createRef()
     }
 
@@ -42,14 +43,17 @@ class Form extends React.Component {
     handleChangeFile = async (e)=>{
         const file = e.target.files[0]
         const type = file.type.split('/').splice(0, 1)[0]
-        this.btnAddImg.current.innerHTML = file.name
         if(type === 'image') {
             this.setState({invalid: 1})
-            this.error_image.current.innerHTML = ''
+            var File = new FileReader();
+            File.readAsDataURL(file);
+            File.onload = e => {
+                const img_review = (<img alt={file.name} width='300px' height='200px' src={e.target.result} ></img>)
+                this.setState({img_review})
+            }
             await this.setState({file})
         }else {
             this.setState({invalid: 0})
-            this.error_image.current.innerHTML = 'Invalid image.'
         }
         
     }
@@ -92,15 +96,18 @@ class Form extends React.Component {
                             </div>
                             <div className='elm elm-files'>
                                 <p>Image:</p>
-                                <div className='upload-file'>
-                                    <button ref={this.btnAddImg}>Choose image</button>
-                                    <input type='file' name='file' onChange={this.handleChangeFile}/>
+                                <div className='img-review'>
+                                        {this.state.img_review}
+                                </div>
+                                <div className='upload-file text-center'>
+                                    <label htmlFor='img-category'>Choose image</label>
+                                    <input type='file' name='file' id='img-category' onChange={this.handleChangeFile}/>
                                 </div>
                                 <p className='error-image' ref={this.error_image}></p>
                             </div>
                             <div className='elm elm-col'>
-                                <input type='submit' className='btn' value={this.state.id === '' ? 'Add':'Update'}/>
-                                <input type='button' className='btn btn-primary' value='Cancel' onClick={this.hideAddCategory}/>
+                                <input type='submit' className='btn format-btn-left' value={this.state.id === '' ? 'Add':'Update'}/>
+                                <input type='button' className='btn btn-primary format-btn-right' value='Cancel' onClick={this.hideAddCategory}/>
                             </div>
                         </form>
                     </div>
