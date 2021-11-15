@@ -9,9 +9,9 @@
     background-color: rgba(#333, 0.7);
     box-sizing: border-box;
     .add-food {
-        width: 450px;
-        height: 600px;
-        margin: 80px auto;
+        width: 1000px;
+        height: 550px;
+        margin: 100px auto;
         border-radius: 5px;
         overflow: hidden;
         background-color: #f1f2f6;
@@ -31,10 +31,20 @@
                 width: 100%;
                 height: 100%;
 
+                .col-elm {
+                    float: left;
+                    width: 50%;
+                }
+
                 .elm {
                     width: 100%;
-                    height: 17%;
+                    height: auto;
                     margin: 5px 0;
+
+                    .format-p{
+                        padding: 10px;
+                    }
+
                     p {
                         width: 75%;
                         height: 40%;
@@ -46,7 +56,7 @@
 
                     input {
                         width: 70%;
-                        height: 50%;
+                        height: 40px;
                         display: block;
                         margin: 0 auto;
                         padding: 0 10px;
@@ -78,13 +88,12 @@
                 }
 
                 .elm-textarea {
-                    height: 130px;
                      p{
                          height: 20%;
                      }
                     textarea {
                         width: 70%;
-                        height: 70%;
+                        height: 200px;
                         display: block;
                         margin: 0 auto;
                         padding: 5px 10px;
@@ -95,18 +104,28 @@
                 }
 
                 .elm-files {
-                    height: 22%;
+                    height: auto;
+                    .img-review {
+                        height: 200px;
+                        width: 300px;
+                        background-color: #fff;
+                        border-radius: 10px;
+                        margin: 10px auto 10px auto;
+                        overflow: hidden;
+                    }
                     .upload-file {
                         width: 70%;
                         margin: 0 auto;
-                        position: relative;
-                        button {
-                            position: absolute;
-                            top: 0;
-                            left: 50%;
-                            transform: translateX(-50%);
+                        // position: relative;
+                        label {
+                            // position: absolute;
+                            // top: 0;
+                            // left: 50%;
+                            margin: 0 auto;
+                            //transform: translateX(-50%);
                             width: 150px;
                             height: 30px;
+                            line-height: 30px;
                             overflow: hidden;
                             white-space: nowrap;
                             text-overflow: ellipsis;
@@ -120,9 +139,10 @@
                             display: block;
                         }
                         input {
-                            position: absolute;
+                            // position: absolute;
                             top: 0;
                             left: 50%;
+                            display: none;
                             transform: translateX(-50%);
                             width: 150px;
                             height: 30px;
@@ -152,7 +172,7 @@
                         }
                         input[type='number'] {
                             width: 80%;
-                            height: 50%;
+                            height: 30px;
                             border-radius: 5px;
                             border: 1px solid #b6b6b6;
                             margin: 0;
@@ -160,7 +180,7 @@
                         
                         select {
                             width: 100%;
-                            height: 50%;
+                            height: 30px;
                             border-radius: 5px;
                             border: 1px solid #b6b6b6;
                             background: white;
@@ -170,16 +190,29 @@
                     .btn {
                         width: 150px;
                         height: 35px;
-                        margin: 10px;
                         cursor: pointer;
                         border: none;
-                        margin: 0 5px;
+                        margin: 10px;
                         background-color: #23b6ff;
                         font-weight: bold;
                         transition: .25s;
                         color: white;
                         font-family: 17px;
                     }
+
+                    .format-btn-left {
+                        margin-left: auto;
+                        //margin-right: auto;
+                    }
+
+                    .format-btn-right {
+                        margin-right: auto;
+                    }
+
+                    .clear-fix {
+                        float: none;
+                    }
+
                     .btn:hover {
                         background-color: #ff6b81;
                     }

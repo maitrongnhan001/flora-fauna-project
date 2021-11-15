@@ -95,9 +95,9 @@ class Foods extends React.Component {
         if(prevState.offset !== this.state.offset) {
             const foods = await getFoods(10, this.state.offset)
             console.log(foods)
-            if(!foods || foods.length < 10)
+            if(!foods.data || foods.data.length < 10)
                 this.setState({activeSeeMoreButton: 0})
-            if(foods)
+            if(foods.data)
                 await this.setState({
                     foods: [...this.state.foods, ...foods.data]
                 })

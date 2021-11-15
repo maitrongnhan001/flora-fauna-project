@@ -26,7 +26,11 @@ class Table extends React.Component {
                         <p style={{ textAlign: 'justify' }}>{food.description}</p>
                     </td>
                     <td>
-                        <img src={`http://localhost:8000/uploads/${food.image_name}`} alt={food.food_name} />
+                        <img 
+                        src={`http://localhost:8000/uploads/${food.image_name}`} 
+                        alt={food.food_name} 
+                        onError={e => this.HandleErrorLoadImage(e)}
+                        />
                     </td>
                     <td>
                         <p>{food.category_name}</p>
@@ -93,6 +97,13 @@ class Table extends React.Component {
         } else {
             $('.food-see-more').css('visibility', 'visible')
         }
+    }
+
+    //handle error load iamge
+    HandleErrorLoadImage = (e) => {
+        //function run when load image error
+        e.target.src = "/Images/Categories/no-image.png"
+        e.onerror = null
     }
 
     render() {

@@ -90,11 +90,11 @@ class Categories extends React.Component {
     async componentDidUpdate(prevProps, prevState) {
         if(prevState.offset !== this.state.offset) {
             const categories = await getCategories(10, this.state.offset)
-            if(!categories || categories.length < 10)
+            if(!categories.data || categories.data.length < 10)
                 this.setState({activeSeeMoreButton: 0})
-            if(categories) {
+            if(categories.data) {
                 await this.setState({
-                    categories: [...this.state.categories, ...categories]
+                    categories: [...this.state.categories, ...categories.data]
                 })
             }else console.log(categories.message)
 

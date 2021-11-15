@@ -70,6 +70,7 @@ class Category extends Component {
                         })}
                     </div>
                     <div className="clearfix" />
+                    {this.props.Categories.length === 0 ? <p className='text-center'>{'Loading..'}</p> : ""}
                     <p className={`text-center ${this.state.status_load_element}`}>
                         <span className='pink pointer' onClick={(e) => this.LoadMoreCategories(e)}>See More Categories</span>
                     </p>

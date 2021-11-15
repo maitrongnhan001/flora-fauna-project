@@ -132,6 +132,7 @@ class Product extends Component {
                     })}
                 </div>
                 <div className="clearfix" />
+                {this.props.Products.length === 0 ? <p className='text-center'>{'Loading..'}</p> : ""}
                 <p className={`text-center ${this.state.status_load_element}`}>
                     <span className="pink pointer" onClick={(e) => this.LoadMoreProduct(e)}>See More Foods</span>
                 </p>

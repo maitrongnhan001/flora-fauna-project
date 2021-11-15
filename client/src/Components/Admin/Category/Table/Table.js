@@ -19,7 +19,13 @@ class Table extends React.Component {
                 <tr className='data' key={idx}>
                     <td>{idx + 1}</td>
                     <td>{category.category_name}</td>
-                    <td><img src={`http://localhost:8000/uploads/${category.image_name}`} alt={category.category_name} /></td>
+                    <td>
+                        <img 
+                        src={`http://localhost:8000/uploads/${category.image_name}`} 
+                        alt={category.category_name} 
+                        onError={e => this.HandleErrorLoadImage(e)}
+                        />
+                    </td>
                     <td>
                         <button className='btn btn-update' onClick={() => { this.props.onClickToUpdateCategory(category) }}><i className="fas fa-pen"></i>Update</button>
                         <button className='btn btn-delete' onClick={() => { this.handleDeleteCategory(category.id) }}><i className="fas fa-eraser"></i>Delete</button>
@@ -74,6 +80,13 @@ class Table extends React.Component {
         } else {
             $('.categories-see-more').css('visibility', 'visible')
         }
+    }
+
+    //handle error load iamge
+    HandleErrorLoadImage = (e) => {
+        //function run when load image error
+        e.target.src = "/Images/Categories/no-image.png"
+        e.onerror = null
     }
 
     render() {
