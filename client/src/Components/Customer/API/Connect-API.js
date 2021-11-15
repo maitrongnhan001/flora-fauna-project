@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = 'http://localhost:8000/api';
 
 export default async function connectAPI(method, url, data) {
     //function comnunnication between client and server
