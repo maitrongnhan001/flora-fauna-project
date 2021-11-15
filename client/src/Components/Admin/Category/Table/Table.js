@@ -19,7 +19,7 @@ class Table extends React.Component {
                 <tr className='data' key={idx}>
                     <td>{idx + 1}</td>
                     <td>{category.category_name}</td>
-                    <td><img src={`/uploads/${category.image_name}`} alt={category.category_name} /></td>
+                    <td><img src={`http://localhost:8000/uploads/${category.image_name}`} alt={category.category_name} /></td>
                     <td>
                         <button className='btn btn-update' onClick={() => { this.props.onClickToUpdateCategory(category) }}><i className="fas fa-pen"></i>Update</button>
                         <button className='btn btn-delete' onClick={() => { this.handleDeleteCategory(category.id) }}><i className="fas fa-eraser"></i>Delete</button>

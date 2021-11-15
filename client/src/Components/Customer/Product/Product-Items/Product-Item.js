@@ -56,7 +56,7 @@ class ProductItem extends Component {
                         onClick={this.handleClickProduct}
                     >
                         <img
-                            src={`/uploads/${this.props.Information.image_name}`}
+                            src={`http://localhost:8000/uploads/${this.props.Information.image_name}`}
                             alt="Chicke Hawain Pizza"
                             className="img-responsive img-curve"
                             onError={e => { this.handleNoImage(e) }}

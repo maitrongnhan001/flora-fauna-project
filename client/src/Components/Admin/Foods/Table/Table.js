@@ -26,7 +26,7 @@ class Table extends React.Component {
                         <p style={{ textAlign: 'justify' }}>{food.description}</p>
                     </td>
                     <td>
-                        <img src={`/uploads/${food.image_name}`} alt={food.food_name} />
+                        <img src={`http://localhost:8000/uploads/${food.image_name}`} alt={food.food_name} />
                     </td>
                     <td>
                         <p>{food.category_name}</p>

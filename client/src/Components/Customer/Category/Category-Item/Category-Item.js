@@ -22,7 +22,7 @@ class CategoryItem extends Component {
                 <Link action="true" to="/products" onClick={this.ClickComponent}>
                     <div className="box-3 float-container img-curve">
                         <img
-                            src={`/uploads/${this.props.Information.image_name}`}
+                            src={`http://localhost:8000/uploads/${this.props.Information.image_name}`}
                             alt="  "
                             className="img-curve"
                             onError={e => { this.handleNoImage(e) }}
