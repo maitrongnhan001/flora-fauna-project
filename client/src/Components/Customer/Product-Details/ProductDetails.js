@@ -43,7 +43,7 @@ class ProductDetails extends Component {
                         <div className='details'>
                             <div className='col-img'>
                                 <img
-                                    src={`http://localhost:8000/uploads/${this.state.product_details.image_name}`}
+                                    src={`/uploads/${this.state.product_details.image_name}`}
                                     alt={this.state.product_details.image_name}
                                     className="img-curve"
                                     onError={e => { this.handleNoImage(e) }}
@@ -61,7 +61,7 @@ class ProductDetails extends Component {
                                 </p>
                                 <br></br><br></br><br></br>
                                 <div className='center'>
-                                    <Link to='/order' onClick={() => {this.ClickOrder()}} className='btn-primary btn-contract' type='submit'>Order Now</Link>
+                                    <Link to='/order' onClick={() => { this.ClickOrder() }} className='btn-primary btn-contract' type='submit'>Order Now</Link>
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,6 @@ module.exports.sortById = (limit, offset, category) => {
                 FROM foods INNER JOIN categories ON foods.category_id = categories.id 
                 ${categoryQuery}
                 ORDER BY foods.id DESC LIMIT ? OFFSET ?`;
-        console.log(sql);
         connection.query(sql, [limit, offset], function (error, result) {
             if (error) {
                 reject(error);
@@ -39,7 +38,6 @@ module.exports.sortByQuantity = (limit, offset, category) => {
                     INNER JOIN categories ON f.category_id = categories.id
                     ${categoryQuery} 
                     ORDER BY cn.cnt DESC LIMIT ? OFFSET ?`
-        console.log(sql);
         connection.query(sql, [limit, offset], function (error, result) {
             if (error) {
                 reject(error);

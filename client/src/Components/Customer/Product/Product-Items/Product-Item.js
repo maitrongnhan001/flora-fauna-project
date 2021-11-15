@@ -4,10 +4,10 @@ import './Product-Item.scss'
 
 class ProductItem extends Component {
 
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
-            price_text : "",
+            price_text: "",
             price: ""
         };
     }
@@ -28,24 +28,24 @@ class ProductItem extends Component {
         this.props.HandleOrder(id_product);
     }
 
-    static getDerivedStateFromProps (nextProps, prevState) {
+    static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.Information.price !== prevState.price) {
 
             let price_text = String(nextProps.Information.price);
 
             let i = price_text.length - 3;
 
-            while(i > 0) {
+            while (i > 0) {
                 price_text = price_text.slice(0, i) + '.' + price_text.slice(i);
                 i -= 3;
             }
-            
+
             return {
                 price_text: price_text,
                 price: nextProps.Information.price
             };
         }
-        return {undefined};
+        return { undefined };
     }
 
     render() {
@@ -56,7 +56,7 @@ class ProductItem extends Component {
                         onClick={this.handleClickProduct}
                     >
                         <img
-                            src={`http://localhost:8000/uploads/${this.props.Information.image_name}`}
+                            src={`/uploads/${this.props.Information.image_name}`}
                             alt="Chicke Hawain Pizza"
                             className="img-responsive img-curve"
                             onError={e => { this.handleNoImage(e) }}
@@ -72,7 +72,7 @@ class ProductItem extends Component {
                     <p className="product-price">{this.state.price_text} VND</p>
                     <p className="product-detail">{this.props.Information.description}</p>
                     <br />
-                    <Link to="/order" onClick={() => {this.ClickOrder()}} className="btn btn-primary">Order Now</Link>
+                    <Link to="/order" onClick={() => { this.ClickOrder() }} className="btn btn-primary">Order Now</Link>
                 </div>
             </div>
         );

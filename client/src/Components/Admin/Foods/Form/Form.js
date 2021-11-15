@@ -65,7 +65,8 @@ class Form extends React.Component {
         }
     }
 
-    //review image product
+    //review image
+    
 
     //Submit form
     handleSubmit = async (e)=>{

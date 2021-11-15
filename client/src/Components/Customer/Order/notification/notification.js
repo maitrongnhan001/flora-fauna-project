@@ -59,7 +59,7 @@ class Notification extends Component {
                             <legend>Order Food</legend>
                             <div className="product-menu-img">
                                 <img
-                                    src={`http://localhost:8000/uploads/${this.state.image_name}`}
+                                    src={`/uploads/${this.state.image_name}`}
                                     alt={this.state.food_name}
                                     onError={e => { this.handleNoImage(e) }}
                                     className="img-responsive img-curve" />
